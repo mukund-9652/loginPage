@@ -1,0 +1,83 @@
+<!DOCTYPE html5>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>LOGIN</title>
+    <link rel = "icon" href ="https://alextass.com/wp-content/uploads/2015/05/L-luxury-time-directions-letter-mark-icon-logo-design-symbol-by-Alex-Tass.jpg" type = "image/x-icon">
+    <link rel="stylesheet" href="login.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+  </head>
+<body>
+    <div>
+        <form action="#" class="container" onsubmit="return checkForm(this);">
+            <h1>LOGIN</h1><br>
+            <input type="email" 
+                    name="email"
+                    placeholder="  &#xF101; EMAIL"
+                    required 
+                    oninvalid="this.setCustomValidity('Enter Your Email here properly')"
+                    oninput="this.setCustomValidity('')"  /><br>
+            <input type="password" 
+                    name="password"
+                    placeholder="  &#xF101; PASSWORD" 
+                    autocomplete="current-password" 
+                    required
+                    oninvalid="this.setCustomValidity('Enter Your Password here')"
+                    oninput="this.setCustomValidity('')" /><br>
+        
+            <Button type="submit" class="btn">Login </Button><br>
+           
+        </form>
+    </div>
+    <script type="text/javascript">
+
+      function checkForm(form)
+      {
+        if(form.email.value == "") {
+          alert("Error: Email cannot be blank!");
+          form.email.focus();
+          return false;
+        }
+        re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if(!re.test(form.email.value)) {
+          alert("Error: Email must be proper");
+          form.email.focus();
+          return false;
+        }
+    
+        if(form.password.value != "") {
+          if(form.password.value.length < 6) {
+            alert("Error: Password must contain at least six characters!");
+            form.password.focus();
+            return false;
+          }
+          re = /[0-9]/;
+          if(!re.test(form.password.value)) {
+            alert("Error: password must contain at least one number (0-9)!");
+            form.password.focus();
+            return false;
+          }
+          re = /[a-z]/;
+          if(!re.test(form.password.value)) {
+            alert("Error: password must contain at least one lowercase letter (a-z)!");
+            form.password.focus();
+            return false;
+          }
+          re = /[A-Z]/;
+          if(!re.test(form.password.value)) {
+            alert("Error: password must contain at least one uppercase letter (A-Z)!");
+            form.password.focus();
+            return false;
+          }
+        }
+    
+        alert("You entered a valid password: " + form.password.value);
+        return true;
+      }
+    
+    </script>
+</body>
+    
+</html>
